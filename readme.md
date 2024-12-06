@@ -121,11 +121,13 @@ kaydetmeniz gerekiyor. İşte adımlar:
 1. https://network.subsquid.io adresine gidin.
 
 2. Birincil cüzdanınızı ekleyin.
-![alt text](assets/connect_wallet.png)
+
+   ![alt text](assets/connect_wallet.png)
 
 3. "Workers" sekmesine gidin ve "Add Worker" butonuna tıklayın. Ardından Worker
    kayıt formu görmelisiniz:
-![alt text](assets/worker_registration.png)
+
+   ![alt text](assets/worker_registration.png)
 
 4. Formu doldurun. 
 
