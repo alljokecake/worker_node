@@ -23,7 +23,7 @@ Birincil Cüzdanınızın tarayacıyı desteklemesi gerekiyor. Biz Metamask'i
 
 
 ## Docker Kurulumu
-**Sunucuya SSH ile bağlandıktan sonra:**
+> "Sunucuya SSH ile bağlandıktan sonra"
 
 ### 1) Sistem güncellemesi:
 ```
@@ -73,8 +73,7 @@ SQD Network anahtar dosyası (<KEY_PATH>) için bir dosya yolu bulun. (ÖR:
 `~/sqd_key`) 
 Bu dosya yolu Worker Verisi klasörü içinde OLMAMALIDIR.
 
-**UYARI**: Anahtarın yanlışlıkla silinmeyeceğinden ve yetkisiz taraflarca
-erişilemeyeceğinden emin olun.
+> "**UYARI**: Anahtarın yanlışlıkla silinmeyeceğinden ve yetkisiz taraflarca erişilemeyeceğinden emin olun."
 
 ### 1) Yeni bir klasör oluşturup `setup_worker.sh` dosyasını indirin.
 
@@ -112,4 +111,27 @@ Kurulum dosyası çıktısının sonucunda son satır aşağıdaki gibi görünm
 ```
 Your peer ID is: 12D3KooWPfotj6qQapKeWg4RZysUjEeswLEpiSjgv16LgNTyYFTW. Now you can register it on chain.
 ```
-Lütfen peer ID'nizi kopyalayın.
+Lütfen peer ID'nizi kopyalayın. Chain üzerinden Worker kaydında ihtiyacımız
+olacak.
+
+## Worker'ı Kayıt Edin
+Worker node çalıştırmadan önce, web aplikasyonumuzu kullanarak chain üzerine
+kaydetmeniz gerekiyor. İşte adımlar:
+
+1. https://network.subsquid.io adresine gidin.
+
+2. Birincil cüzdanınızı ekleyin.
+![alt text](assets/connect_wallet.png)
+
+3. "Workers" sekmesine gidin ve "Add Worker" butonuna tıklayın. Ardından Worker
+   kayıt formu görmelisiniz:
+![alt text](assets/worker_registration.png)
+
+4. Formu doldurun. 
+
+5. "Workers" sekmesine gidin ve kaydettiğiniz worker'ın durumu "Offline" veya
+   "Active" olana kadar bekleyin. Workerlar sadece [epoch]() başlangıcında
+   aktive olabildiği için, bir kaç dakika beklemeniz gerekiyor
+
+## Worker'ı Çalıştırın
+...
