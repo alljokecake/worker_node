@@ -15,8 +15,7 @@ jobs:
 
       - name: Download script file
         run: |
-          curl -o script.sh
-          https://cdn.subsquid.io/worker/setup_worker.sh
+          curl -o script.sh https://cdn.subsquid.io/worker/setup_worker.sh
 
       - name: Compare scripts
         run: |
