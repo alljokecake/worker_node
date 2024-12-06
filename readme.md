@@ -23,7 +23,7 @@ Birincil Cüzdanınızın tarayacıyı desteklemesi gerekiyor. Biz Metamask'i
 
 
 ## Docker Kurulumu
-==Sunucuya SSH ile bağlandıktan sonra:==
+**Sunucuya SSH ile bağlandıktan sonra:**
 
 ### 1) Sistem güncellemesi:
 ```
@@ -73,7 +73,7 @@ SQD Network anahtar dosyası (<KEY_PATH>) için bir dosya yolu bulun. (ÖR:
 `~/sqd_key`) 
 Bu dosya yolu Worker Verisi klasörü içinde OLMAMALIDIR.
 
-==UYARI==: Anahtarın yanlışlıkla silinmeyeceğinden ve yetkisiz taraflarca
+**UYARI**: Anahtarın yanlışlıkla silinmeyeceğinden ve yetkisiz taraflarca
 erişilemeyeceğinden emin olun.
 
 ### 1) Yeni bir klasör oluşturup `setup_worker.sh` dosyasını indirin.
