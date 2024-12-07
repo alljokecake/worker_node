@@ -135,9 +135,9 @@ kaydetmeniz gerekiyor. İşte adımlar:
    ![alt text](assets/worker_registration.png)
 
 4. Formu doldurun ve bir işlem imzalayarak gönderin. 
-   - Aşağı doğru açılan menüde, "Wallet" (Cüzdanınızdan direkt **SQD** kullanmak için)
-     veya "Vesting contract" (Hakediş sözleşmesinden **SQD** kullanmak için)
-     seçin.
+   - Aşağı doğru açılan menüde, "Wallet" (Cüzdanınızdan direkt **SQD** kullanmak
+     için) veya "Vesting contract" (Hakediş sözleşmesinden **SQD** kullanmak
+     için) seçin.
    - "Kurulum dosyası çalıştırın" bölümünde kopyaladığınız peer ID'yi kullanın.
 
 5. "Workers" sekmesine gidin ve kaydettiğiniz worker'ın durumu "Offline" veya
@@ -147,4 +147,11 @@ kaydetmeniz gerekiyor. İşte adımlar:
 [Worker'ı Çalıştırın](#worker%C4%B1-%C3%A7al%C4%B1%C5%9Ft%C4%B1r%C4%B1n) ile devam edin.
 
 ## Worker'ı Çalıştırın
-...
+Hala `worker_setup` isimli klasörde olduğunuzdan emin olun.
+Komutu çalıştırın:
+```
+docker compose up -d
+```
+Ardından `docker compose logs` ile worker konteynerin kayıtlarını kontrol edin.
+Bir süre sonra, worker indirilen veri parçaları hakkında bazı bilgiler
+çıkarmalıdır.
