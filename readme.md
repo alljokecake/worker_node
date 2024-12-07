@@ -244,7 +244,7 @@ Ubuntu 22.04 LTS
 
 ### `error from daemon in stream: Error grabbing logs` hatasını görüyorum.
 Bu hata docker'dan kaynaklanmaktadır, worker ile alakalı değildir. Daha fazla
-bilgi için [bu Github sorununa](https://github.com/docker/for-linux/issues/140) ve [bu Stackoverflow başlığına](https://stackoverflow.com/questions/46843711/docker-error-grabbing-logs-invalid-character-x00-looking-for-beginning-of-v) bakın.
+bilgi için [bu github sorununa](https://github.com/docker/for-linux/issues/140) ve [bu Stackoverflow başlığına](https://stackoverflow.com/questions/46843711/docker-error-grabbing-logs-invalid-character-x00-looking-for-beginning-of-v) bakın.
 
 ### Worker'ımın güncel olup çalıştığını nasıl kontrol edebilirim?
 Peer ID'nizi kopyalayın ve [bu sayfada](https://scheduler.mainnet.subsquid.io/workers/pings) bir kayıt arayın.
@@ -258,5 +258,5 @@ Anahtar dosyanızı kaybederseniz, yeni bir tane alıp kaydetmeden, worker'ını
 Anahtar dosyanız çalınırsa, saldırgan worker'ınız için bağlantı sorunları
 yaratabilir.
 
-Bunlardan herhangi biri olursa, worker'ınızın ([Workers"sekmesinden](https://network.subsquid.io)) kaydını kaldırın.
-yeni bir [anahtar dosyası oluşturun](#worker-kurulumu) ve yeni peer ID'nizi [kaydedin](#worker%C4%B1-kaydedin).
+Bunlardan herhangi biri olursa, worker'ınızın (["Workers" sekmesinden](https://network.subsquid.io)) kaydını kaldırın.
+Yeni bir [anahtar dosyası oluşturun](#worker-kurulumu) ve yeni peer ID'nizi [kaydedin](#worker%C4%B1-kaydedin).
