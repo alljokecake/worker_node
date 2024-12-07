@@ -161,7 +161,7 @@ Bazen workerınızı güncellemeniz gerekebilir. Bunun için standart prosedür:
 
 1. Anahtar dosyanızı yedekleyin. 
 2. `worker_setup` isimli klasörünüze gidin.
-3. Güncellenmil `docker-compose.yaml` dosyasını indirin.
+3. Güncellenmiş `docker-compose.yaml` dosyasını indirin.
 ```
 curl -fO https://cdn.subsquid.io/worker/docker-compose.yaml
 ```
