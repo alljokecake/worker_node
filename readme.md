@@ -14,7 +14,8 @@ Tek bir worker çalıştırmak için ihtiyacınz olanlar:
 * Kamuya açık IP adresi (2 açık port ile):
   - UDP portu: P2P iletişimi için (varsayılan: 12345)
   - TCP portu: Prometheus metrikleri için (varsayılan: 9090)
-* `100_000` ***SQD*** token
+* `100_000` ***SQD*** token (cüzdanınızda veya özel "vesting contract"
+  içerisinde)
 * Gas ücretleri için Arbitrum ETH
 
 **SQD** tokenleri *Birincil Cüzdanınızda* mevut olmalıdır.
@@ -23,7 +24,7 @@ Birincil Cüzdanınızın tarayacıyı desteklemesi gerekiyor. Biz Metamask'i
 
 
 ## Docker Kurulumu
-> "Sunucuya SSH ile bağlandıktan sonra"
+> Sunucuya SSH ile bağlandıktan sonra
 
 ### 1) Sistem güncellemesi:
 ```
@@ -63,6 +64,8 @@ sudo systemctl enable --now docker
 docker --version
 ```
 
+[Worker Kurulumu](https://github.com/alljokecake/blob/master/readme.md#worker-kurulumu) ile devam edin.
+
 
 ## Worker Kurulumu
 Worker Verisi klasörü (<DATA_DIR_PATH>) için bir dosya yolu bulun. (ÖR:
@@ -73,7 +76,7 @@ SQD Network anahtar dosyası (<KEY_PATH>) için bir dosya yolu bulun. (ÖR:
 `~/sqd_key`) 
 Bu dosya yolu Worker Verisi klasörü içinde OLMAMALIDIR.
 
-> "**UYARI**: Anahtarın yanlışlıkla silinmeyeceğinden ve yetkisiz taraflarca erişilemeyeceğinden emin olun."
+> **UYARI**: Anahtarın yanlışlıkla silinmeyeceğinden ve yetkisiz taraflarca erişilemeyeceğinden emin olun.
 
 ### 1) Yeni bir klasör oluşturup `setup_worker.sh` dosyasını indirin.
 
@@ -114,6 +117,8 @@ Your peer ID is: 12D3KooWPfotj6qQapKeWg4RZysUjEeswLEpiSjgv16LgNTyYFTW. Now you c
 Lütfen peer ID'nizi kopyalayın. Chain üzerinden Worker kaydında ihtiyacımız
 olacak.
 
+[Worker'ı Kayıt Edin](https://github.com/alljokecake/blob/master/readme.md#worker%C4%B1-kay%C4%B1t-edin) ile devam edin.
+
 ## Worker'ı Kayıt Edin
 Worker node çalıştırmadan önce, web aplikasyonumuzu kullanarak chain üzerine
 kaydetmeniz gerekiyor. İşte adımlar:
@@ -129,11 +134,17 @@ kaydetmeniz gerekiyor. İşte adımlar:
 
    ![alt text](assets/worker_registration.png)
 
-4. Formu doldurun. 
+4. Formu doldurun ve bir işlem imzalayarak gönderin. 
+   - Aşağı doğru açılan menüde, "Wallet" (Cüzdanınızdan direkt **SQD** kullanmak için)
+     veya "Vesting contract" (Hakediş sözleşmesinden **SQD** kullanmak için)
+     seçin.
+   - "Kurulum dosyası çalıştırın" bölümünde kopyaladığınız peer ID'yi kullanın.
 
 5. "Workers" sekmesine gidin ve kaydettiğiniz worker'ın durumu "Offline" veya
    "Active" olana kadar bekleyin. Workerlar sadece [epoch]() başlangıcında
    aktive olabildiği için, bir kaç dakika beklemeniz gerekiyor
+
+[Worker'ı Çalıştırın](https://github.com/alljokecake/blob/master/readme.md#worker%C4%B1-%C3%A7al%C4%B1%C5%9Ft%C4%B1r%C4%B1n) ile devam edin.
 
 ## Worker'ı Çalıştırın
 ...
