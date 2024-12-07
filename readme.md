@@ -117,9 +117,9 @@ Your peer ID is: 12D3KooWPfotj6qQapKeWg4RZysUjEeswLEpiSjgv16LgNTyYFTW. Now you c
 Lütfen peer ID'nizi kopyalayın. Chain üzerinden Worker kaydında ihtiyacımız
 olacak.
 
-[Worker'ı Kayıt Edin](#worker%C4%B1-kay%C4%B1t-edin) ile devam edin.
+[Worker'ı Kaydedin](#worker%C4%B1-kaydedin) ile devam edin.
 
-## Worker'ı Kayıt Edin
+## Worker'ı Kaydedin
 Worker node çalıştırmadan önce, web aplikasyonumuzu kullanarak chain üzerine
 kaydetmeniz gerekiyor. İşte adımlar:
 
@@ -174,4 +174,62 @@ docker compose up -d
 ***devam eden çalışma***
 
 ## Sorun Giderme
-***devam eden çalışma***
+
+### **peer ID**'mi nerde bulabilirim?
+`setup_worker.sh` dosyasını çalıştırdığınızdaki çıktısında yazmaktadır.[Worker Kurulumu](#worker-kurulumu)
+Ayrıca worker kayıtlarının ilk satırında bulunmaktadır. `docker compose logs`
+komutu ile worker konteynerin kayıtlarına bakabilirsiniz.
+
+Aradığınız kayıt satırı aşağıdaki gibi görünmelidir:
+```
+2024-05-28T07:43:55.591440Z  INFO subsquid_worker::transport::p2p: Local peer ID: <PEER_ID>
+```
+
+### Worker kayıtlarında `Failed to download chunk ... operation timed out` hatasını görüyorum.
+Bağlantı kalitenize bağlı olarak, `.env`dosyasındaki `S3_TIMEOUT` ve
+`CONCURRENT_DOWNLOADS` ortam değişkenlerini ayarlamak isteyebilirsiniz. Eğer bu
+hatayı sıkça alıyorsanız, `S3_TIMEOUT` değerini `180` olarak ayarlamayı deneyin.
+Eğer hala çözüm bulamazsanız, `CONCURRENT_DOWNLOADS` değerini `1`'e ve
+`S3_READ_TIMEOUT`değerini `30`'a ayarlayın.
+
+### Worker, `Trying to collect logs up to ...` mesajıyla çöküyor.
+Lokal verilerinizde bir sıkıntı var. Worker'ı durdurun, worker veri dosyasını
+tamamen silin ve tekrar başlatın.
+
+### Worker kayıtlarında `Insufficient peers...` hatasını görüyorum.
+Görmezden gelin.
+
+### Worker'ımı başka bir sunucuya taşıyabilir miyim?
+Evet, başlatmadan önce anahtar dosyasını (`<KEY_PATH>`) yeni çalışma klasörüne
+kopyalayın. Worker'ınızı tekrar kaydetmenize gerek yok. Yeni sunucudaki veri
+klasörünü güncellemeyi unutmayın.
+
+### Worker'ımı daha yeni başlattım, kayıtlar gözükmüyor.
+Bu normaldir. Birkaç dakika bekleyin ve kayıtlarda bazı verilerin indirilmeye
+başlandığını görmelisiniz.
+
+### Worker'ımın en son sürüme güncellenip güncellenmediğini nasıl kontrol edebilirim?
+[pings endpoint](https://scheduler.mainnet.subsquid.io/workers/pings)'e bakın ve
+peer ID'nize göre sürümü belirleyin.
+
+### Hangi Linux dağıtımı önerilir?
+Ubuntu 22.04 LTS
+
+### `error from daemon in stream: Error grabbing logs` hatasını görüyorum.
+Bu hata docker'dan kaynaklanmaktadır, worker ile alakalı değildir. Daha fazla
+bilgi için [bu Github sorununa](https://github.com/docker/for-linux/issues/140) ve [bu Stackoverflow başlığına](https://stackoverflow.com/questions/46843711/docker-error-grabbing-logs-invalid-character-x00-looking-for-beginning-of-v) bakın.
+
+### Worker'ımın güncel olup çalıştığını nasıl kontrol edebilirim?
+Peer ID'nizi kopyalayın ve [bu sayfada](https://scheduler.mainnet.subsquid.io/workers/pings) bir kayıt arayın.
+Eğer son ping zaman damgası 1 dakika önce ise ve listelenen sürüm en son
+sürümse, her şey yolunda demektir.
+
+### Anahtar dosyamı kaybetmemin veya çalınmasının sonuçları nedir?
+Anahtar dosyanızı kaybederseniz, yeni bir tane alıp kaydetmeden, worker'ınızı
+çalıştıramazsınız.
+
+Anahtar dosyanız çalınırsa, saldırgan worker'ınız için bağlantı sorunları
+yaratabilir.
+
+Bunlardan herhangi biri olursa, worker'ınızın ([Workers"sekmesinden](https://network.subsquid.io)) kaydını kaldırın.
+yeni bir [anahtar dosyası oluşturun](#worker-kurulumu) ve yeni peer ID'nizi [kaydedin](#worker%C4%B1-kaydedin).
