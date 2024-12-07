@@ -171,12 +171,39 @@ docker compose up -d
 ```
 
 ## On jailing
-***devam eden çalışma***
+Jailing, her veri parçasının sorgulanabilir olmasını sağlayan bir zamanlayıcı
+tarafı mekanizmasıdır. Zamanlayıcı, hangi worker'ların "güvenilmez" olduğunu
+tahmin etmeye çalışır ve her veri parçasının en az birkaç "güvenilir" worker
+node'unda mevcut olmasını garanti altına almak için en iyi çabayı gösterir.
+Ancak, bir worker güvenilmez olarak işaretlense bile, indirdiği veri
+parçalarından sorguları işlemeye devam eder ve ödüllerini kazanmaya devam eder.
+Bu durum geçicidir — worker yaklaşık 3 saat içinde otomatik olarak jail'den
+çıkar. Eğer jail'e girme sebebi ortadan kalkarsa, bir sonraki seferde tekrar
+jail'e girmez.
+
+Eğer worker sürekli olarak jail'e giriyorsa, bu ödüllerini etkileyebilir, bu
+yüzden göz ardı edilmemelidir. Worker'ın güvenilmez olarak işaretlenmesinin
+birden fazla nedeni olabilir (hangi nedenin geçerli olduğunu öğrenmek için
+worker'ın kayıtlarına bakabilirsiniz):
+
+* Worker son 900 saniyede atanan hiçbir veri parçasını indirmedi (`stale`) — bu, 
+  en yaygın olandır. Sorunun kaynağı worker'ın kayıtlarında bulunmalıdır. En
+  olası neden ise indirme zaman aşımalarıdır.
+
+* Worker 600 saniyeden uzun bir süre boyunca ping göndermedi (`inactive`) — bu,
+  örneğin bir worker uzun bir kesintinin ardından geri döndüğünde meydana
+  gelebilir. Eğer scheduler worker'dan ping almazsa, worker'ı çevrimdışı olarak
+  kabul eder ve ona hiçbir veri parçası atamaz.
+
+* Worker, genel bir adres üzerinden erişilemedi (`unreachable`). Bu, hangi
+  node'ların p2p ağı üzerinden erişilemediğini belirlemek için yaptığımız bir
+  denemeydi, ancak doğru uygulama beklediğimiz kadar kolay olmadı, bu yüzden şu
+  anda devre dışı bırakıldı.
 
 ## Sorun Giderme
 
 ### **peer ID**'mi nerde bulabilirim?
-`setup_worker.sh` dosyasını çalıştırdığınızdaki çıktısında yazmaktadır.[Worker Kurulumu](#worker-kurulumu)
+`setup_worker.sh` dosyasını çalıştırdığınızdaki çıktısında yazmaktadır. ([Worker Kurulumu](#worker-kurulumu))
 Ayrıca worker kayıtlarının ilk satırında bulunmaktadır. `docker compose logs`
 komutu ile worker konteynerin kayıtlarına bakabilirsiniz.
 
