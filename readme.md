@@ -64,7 +64,7 @@ sudo systemctl enable --now docker
 docker --version
 ```
 
-[Worker Kurulumu](https://github.com/alljokecake/blob/master/readme.md#worker-kurulumu) ile devam edin.
+[Worker Kurulumu](#worker-kurulumu) ile devam edin.
 
 
 ## Worker Kurulumu
@@ -117,7 +117,7 @@ Your peer ID is: 12D3KooWPfotj6qQapKeWg4RZysUjEeswLEpiSjgv16LgNTyYFTW. Now you c
 Lütfen peer ID'nizi kopyalayın. Chain üzerinden Worker kaydında ihtiyacımız
 olacak.
 
-[Worker'ı Kayıt Edin](https://github.com/alljokecake/blob/master/readme.md#worker%C4%B1-kay%C4%B1t-edin) ile devam edin.
+[Worker'ı Kayıt Edin](#worker%C4%B1-kay%C4%B1t-edin) ile devam edin.
 
 ## Worker'ı Kayıt Edin
 Worker node çalıştırmadan önce, web aplikasyonumuzu kullanarak chain üzerine
@@ -144,7 +144,7 @@ kaydetmeniz gerekiyor. İşte adımlar:
    "Active" olana kadar bekleyin. Workerlar sadece [epoch]() başlangıcında
    aktive olabildiği için, bir kaç dakika beklemeniz gerekiyor
 
-[Worker'ı Çalıştırın](https://github.com/alljokecake/blob/master/readme.md#worker%C4%B1-%C3%A7al%C4%B1%C5%9Ft%C4%B1r%C4%B1n) ile devam edin.
+[Worker'ı Çalıştırın](#worker%C4%B1-%C3%A7al%C4%B1%C5%9Ft%C4%B1r%C4%B1n) ile devam edin.
 
 ## Worker'ı Çalıştırın
 ...
