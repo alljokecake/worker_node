@@ -10,7 +10,7 @@ Tek bir worker çalıştırmak için ihtiyacınz olanlar:
 * 16GB RAM
 * 1TB SSD
 * 7/24 stabil çalışan minimum 1Gbit internet bağlantısı.
-* ~~***docker*** + ***docker-compose***~~
+* ***docker*** + ***docker-compose***
 * Kamuya açık IP adresi (2 açık port ile):
   - UDP portu: P2P iletişimi için (varsayılan: 12345)
   - TCP portu: Prometheus metrikleri için (varsayılan: 9090)
@@ -142,7 +142,7 @@ kaydetmeniz gerekiyor. İşte adımlar:
 
 5. "Workers" sekmesine gidin ve kaydettiğiniz worker'ın durumu "Offline" veya
    "Active" olana kadar bekleyin. Workerlar sadece [epoch]() başlangıcında
-   aktive olabildiği için, bir kaç dakika beklemeniz gerekiyor
+   aktive olabildiği için, bir kaç dakika beklemeniz gerekiyor.
 
 [Worker'ı Çalıştırın](#worker%C4%B1-%C3%A7al%C4%B1%C5%9Ft%C4%B1r%C4%B1n) ile devam edin.
 
@@ -155,3 +155,23 @@ docker compose up -d
 Ardından `docker compose logs` ile worker konteynerin kayıtlarını kontrol edin.
 Bir süre sonra, worker indirilen veri parçaları hakkında bazı bilgiler
 çıkarmalıdır.
+
+## Worker Güncelleme 
+Bazen workerınızı güncellemeniz gerekebilir. Bunun için standart prosedür:
+
+1. Anahtar dosyanızı yedekleyin. 
+2. `worker_setup` isimli klasörünüze gidin.
+3. Güncellenmil `docker-compose.yaml` dosyasını indirin.
+```
+curl -fO https://cdn.subsquid.io/worker/docker-compose.yaml
+```
+4. Ardından güncellemek için komutu çalıştırın:
+```
+docker compose up -d
+```
+
+## On jailing
+***devam eden çalışma***
+
+## Sorun Giderme
+***devam eden çalışma***
