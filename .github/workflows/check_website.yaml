@@ -24,7 +24,7 @@ jobs:
 
       - name: Check for Website Changes
         id: check
-        run: python check_website.py
+        run: python .github/check_website.py
 
       # - name: Create GitHub Issue
         # Run only if the previous step failed (exit code 1)
