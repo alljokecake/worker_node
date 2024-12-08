@@ -1,6 +1,5 @@
 import hashlib
 import requests
-import sys
 
 def get_webpage_hash(url):
     response = requests.get(url)
@@ -8,7 +7,7 @@ def get_webpage_hash(url):
     return hashlib.sha256(content.encode('utf-8')).hexdigest()
 
 url = "https://docs.sqd.dev/subsquid-network/participate/worker/"
-hash_file = "hash.txt"
+hash_file = ".github/checksum"
 
 if __name__ == "__main__":
     try:
@@ -23,7 +22,5 @@ if __name__ == "__main__":
         print("Website has changed!")
         with open(hash_file, "w") as f:
             f.write(new_hash)
-        sys.exit(1) # Exit with 1 to indicate a change
     else:
         print("No changes detected.")
-        sys.exit(0) # Exit with 0 to indicate no change

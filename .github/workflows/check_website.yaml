@@ -23,9 +23,8 @@ jobs:
         run: pip install requests
 
       - name: Check for Website Changes
-        id: check
         run: python .github/check_website.py
-
-      # - name: Create GitHub Issue
-        # Run only if the previous step failed (exit code 1)
-        # TODO: Create a labeled issue.
+      
+      # TODO: Create an issue.
+      - name: Commit Changes
+        uses: EndBug/add-and-commit@v9
