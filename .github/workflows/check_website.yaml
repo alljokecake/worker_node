@@ -26,17 +26,6 @@ jobs:
         id: check
         run: python check_website.py
 
-      - name: Create GitHub Issue
+      # - name: Create GitHub Issue
         # Run only if the previous step failed (exit code 1)
-        if: failure()
-        uses: peter-evans/create-issue@v4
-        with:
-          title: "Website Change Detected"
-          body: |
-            The content of the monitored website has changed.
-
-            - URL: https://docs.sqd.dev/subsquid-network/participate/worker/ 
-            - Timestamp: ${{ github.event.date }}
-
-          labels: |
-            website-monitoring
+        # TODO: Create a labeled issue.
